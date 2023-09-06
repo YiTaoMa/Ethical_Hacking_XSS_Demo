@@ -11,12 +11,16 @@
     </form>
 
     <script>
+        // Function to decode URL-encoded values
+        function decodeURLParameter(param) {
+            return decodeURIComponent(param);
+        }
         //URL for this page: https://yitaoma.github.io/Ethical_Hacking_XSS_Demo/index.html?exnum=1&name=name&value=<script>alert(`Hacked`)<\/script>
         // Get the GET parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
-        const exNumG = urlParams.get("exnum");
-        const nameG = urlParams.get("name");
-        const valueG = urlParams.get("value");
+        const exNumG = decodeURLParameter(urlParams.get("exnum"));
+        const nameG = decodeURLParameter(urlParams.get("name"));
+        const valueG = decodeURLParameter(urlParams.get("value"));
 
         // Set the "name" and "value" in the form field
         const payloadInput = document.getElementById("payload");
