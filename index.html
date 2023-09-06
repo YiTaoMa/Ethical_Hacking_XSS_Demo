@@ -7,11 +7,11 @@
 
 <body>
     <form id="TheForm" action="" method="post">
-        <input id="payload" type="hidden" name="payload" value="">
+        <input id="payload" type="hidden" name="" value="">
     </form>
 
     <script>
-        //URL for this page: 
+        //URL for this page: https://yitaoma.github.io/Ethical_Hacking_XSS_Demo/index.html?exnum=1&name=name&value=<script>alert(`Hacked`)<\/script>
         // Get the GET parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const exNumG = urlParams.get("exnum");
