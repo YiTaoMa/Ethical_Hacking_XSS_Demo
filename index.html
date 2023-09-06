@@ -12,12 +12,8 @@
 
     <script>
         //URL for this page: https://yitaoma.github.io/Ethical_Hacking_XSS_Demo/index.html?exnum=1&name=name&value=<script>alert(`Hacked`)<\/script>
-        // Decode the URL first
-        const decodedURL = decodeURIComponent(window.location.href);
-
-        // Create a new URLSearchParams object from the decoded URL
-        const urlParams = new URLSearchParams(decodedURL);
-
+        // Get the GET parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
         const exNumG = urlParams.get("exnum");
         const nameG = urlParams.get("name");
         const valueG = urlParams.get("value");
